@@ -7,7 +7,7 @@ const Header = () => {
     <Container>
       <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand className="fs-4 fw-bold" href="#home">FlamingFork</Navbar.Brand>
           <Nav className="mx-auto d-flex justify-content-center align-items-center gap-2">
             <NavLink className="text-decoration-none" to='/'>Home</NavLink>
             <NavLink className="text-decoration-none" to='/'>Blog</NavLink>
