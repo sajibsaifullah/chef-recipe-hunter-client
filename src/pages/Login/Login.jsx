@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSingIn, githubSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   console.log("login page location", location);
@@ -28,6 +28,24 @@ const Login = () => {
         console.log(error);
       });
   };
+
+  const GSignIn = () => {
+    googleSingIn()
+    .then(result => {
+      const loggedUser = result.user;
+      navigate(from, { replace: true });
+    })
+    .catch(error => console.log(error))
+  }
+
+  const GHSignIn = () => {
+    githubSignIn()
+    .then(result => {
+      const loggedUser = result.user;
+      navigate(from, { replace: true });
+    })
+    .catch(error => console.log(error))
+  }
 
   return (
     <Container className="w-25 mx-auto">
@@ -64,10 +82,10 @@ const Login = () => {
         <Form.Text className="text-danger"></Form.Text>
       </Form>
       <div className="mt-2 text-center">
-        <Link>
+        <Link onClick={GSignIn}>
           <FaGoogle className="text-danger"></FaGoogle>
         </Link>
-        <Link>
+        <Link onClick={GHSignIn}>
           <FaGithub className="ms-4"></FaGithub>
         </Link>
       </div>
