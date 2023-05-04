@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -15,28 +16,32 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/allData')
+        loader: () => fetch("http://localhost:5000/allData"),
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/register',
-        element: <Register></Register>
+        path: "/register",
+        element: <Register></Register>,
       },
       {
-        path: '/chefRecipes',
-        element: <ChefRecipes />,
-        loader: () => fetch('http://localhost:5000/allData')
+        path: "/chefRecipes",
+        element: (
+          <PrivateRoute>
+            <ChefRecipes />
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/allData"),
       },
       {
-        path: '/blog',
-        element: <Blog></Blog>
-      }
-    ]
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+    ],
   },
 ]);
 
