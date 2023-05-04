@@ -6,7 +6,7 @@ const Banner = () => {
     <>
       <div className="position-relative">
         <img
-          className="w-100 h-auto rounded"
+          className="w-100 h-auto rounded opacity-75"
           src="https://png.pngtree.com/background/20210710/original/pngtree-pizza-simple-black-banner-picture-image_992078.jpg"
           alt="photo"
         />
