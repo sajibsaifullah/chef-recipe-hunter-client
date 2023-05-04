@@ -24,7 +24,7 @@ const Header = () => {
             <NavLink className="text-decoration-none" to="/">
               Home
             </NavLink>
-            <NavLink className="text-decoration-none" to="/">
+            <NavLink className="text-decoration-none" to="/blog">
               Blog
             </NavLink>
           </Nav>
