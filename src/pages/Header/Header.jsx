@@ -6,6 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  // console.log(user?.email)
 
   const handleLogOut = () => {
     logOut()
@@ -30,7 +31,7 @@ const Header = () => {
           </Nav>
           <Nav>
             {user && (
-              <FaUserCircle title="sajib" style={{ fontSize: "2.5rem" }}></FaUserCircle>
+              <FaUserCircle title={user?.email} style={{ fontSize: "2.5rem" }}></FaUserCircle>
             )}
 
             {user ? (
