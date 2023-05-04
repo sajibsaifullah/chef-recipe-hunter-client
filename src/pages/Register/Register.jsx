@@ -5,6 +5,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useState } from "react";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState('');
+
   const { createUser } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
 
@@ -16,11 +19,20 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    
+    if (password.length < 6) {
+      setError("Password length must be 6 character");
+      return;
+    }else{
+        setError('');
+    }
+
     console.log(name, photo, email, password);
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);
+        setSuccess('Registration successful')
       })
       .catch((error) => {
         console.log(error);
@@ -92,8 +104,9 @@ const Register = () => {
         <Form.Text className="text-secondary">
           Already Have an Account? <Link to="/login">Login</Link>
         </Form.Text>
-        <Form.Text className="text-success"></Form.Text>
-        <Form.Text className="text-danger"></Form.Text>
+        <br />
+        <Form.Text className="text-success">{success}</Form.Text>
+        <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
     </Container>
   );
