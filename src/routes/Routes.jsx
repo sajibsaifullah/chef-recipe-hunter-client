@@ -18,7 +18,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/allData"),
+        loader: () =>
+          fetch("https://chef-recipe-hunter-server-ochre.vercel.app/allData"),
       },
       {
         path: "/login",
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
             <ChefRecipes />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allData"),
+        loader: () =>
+          fetch("https://chef-recipe-hunter-server-ochre.vercel.app/allData"),
       },
       {
         path: "/blog",

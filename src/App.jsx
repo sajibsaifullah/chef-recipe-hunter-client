@@ -5,7 +5,7 @@ function App() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/allData")
+    fetch("https://chef-recipe-hunter-server-ochre.vercel.app/allData")
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
