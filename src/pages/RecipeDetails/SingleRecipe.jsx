@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 const SingleRecipe = ({singleRecipe}) => {
-    console.log(singleRecipe.ingredients)
     return (
         <div className="col">
       <div className="card h-100">
