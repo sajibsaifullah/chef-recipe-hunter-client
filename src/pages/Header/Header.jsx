@@ -22,10 +22,10 @@ const Header = () => {
             FlamingFork
           </Navbar.Brand>
           <Nav className="mx-auto d-flex justify-content-center align-items-center gap-2">
-            <NavLink className="text-decoration-none" to="/">
+            <NavLink className={({ isActive }) => isActive ? 'text-info text-decoration-none fw-bold' : 'text-secondary text-decoration-none'} to="/">
               Home
             </NavLink>
-            <NavLink className="text-decoration-none" to="/blog">
+            <NavLink className={({ isActive }) => isActive ? 'text-info text-decoration-none fw-bold' : 'text-secondary text-decoration-none'} to="/blog">
               Blog
             </NavLink>
           </Nav>
